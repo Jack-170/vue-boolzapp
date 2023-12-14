@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 25px;
+}
+/* stili generali struttura */
+.container{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+   
+    
+}
+
+.green-box{
+    
+    height: 150px;
+    background-color: #009688;
+    width: 100%;
+}
+
+.main-container{
+    height: 700px;
+    width: 70%;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute; 
+    top: 15px; 
+    left: 15%; 
+    right: 15%;
+    bottom: 15px;
+    z-index: 2;
+    
+}
+
+.navbar{
+    display: flex;
+    height: 70px;
+    border: 1px solid black;
+}
+
+.nav-left{
+    width: 30%;
+    height: 100%;
+    border: 1px solid black;
+}
+.nav-right{
+    width: 70%;
+    height: 100%;
+    border: 1px solid black;
+    
+}
+
+
+
+.chat-container{
+    width: 30%;
+    height: 630px;
+    border: 1px solid black;
+    /* background-color: blue; */
+}
+.conversation-container{
+    width: 70%;
+    height:  630px;
+    border: 1px solid black;
+    /* background-color: pink; */
+}
+
+.notifications{
+    height: 100px;
+    width: 100%;
+    background-color: #8edafc;
+    border: 1px solid black;
+
+
+}
+
+.search-bar{
+    height: 50px;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.contact-list{
+    height: calc(100% - 150px);
+    width: 100%;
+    border: 1px solid black;
+}
+
+.text-container{
+    height:calc(100% - 60px);
+    width: 100%;
+    border: 1px solid black;
+    overflow: auto;
+    background-image: url('../img/sfondo-watshapp.jpg');
+    background-size: contain;
+    
+
+}
+
+.bottom-bar{
+    height:60px;
+    width: 100%;
+    border: 1px solid black;
+}
+
+/*stili per assengsare caratteristiche */
+
+.d-flex{
+    display: flex;
+}
+
+
