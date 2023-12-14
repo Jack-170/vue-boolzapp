@@ -92,7 +92,7 @@ const app = createApp({
                 ],
             },
             {
-                name: 'Alessandro',
+                name: 'Alessandro B.',
                 avatar: 'img/avatar_4.jpg',
                 visible: true,
                 messages: [
@@ -108,15 +108,61 @@ const app = createApp({
                     }
                 ],
             },
+            {
+                name: 'Alessandro L.',
+                avatar: 'img/avatar_4.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Ricordati di chiamare la nonna',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'Va bene, stasera la sento',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Claudia',
+                avatar: 'img/avatar_5.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Ciao Claudia, hai novità?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'Non ancora',
+                        status: 'received'
+                    },
+                    {
+                        date: '10/01/2020 15:51:00',
+                        message: 'Nessuna nuova, buona nuova',
+                        status: 'sent'
+                    }
+                ],
+            },
+        
+        
             
-        ] 
+        ],
+        activeContactIndex:null
         
           
           
       };
   },
   methods: {
-   
+    activeContact(index){
+        this.activeContactIndex = index;
+    }
+
+    
       
   },
  
