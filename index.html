@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Rethink+Sans&family=Roboto&display=swap" rel="stylesheet">
-    <title></title>
+    <title>Vue-boolzapp</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -23,8 +23,54 @@
         <div class="main-container">
 
             <div class="navbar">
-                <div class="nav-left"></div>
-                <div class="nav-right"></div>
+                <div class="nav-left">
+                    <div class="card ">
+                        <div class="d-flex">
+                            <div class="box-img">
+                                <img src="img/avatar_io.jpg" alt="">
+                            </div>
+
+                            <div class="align-items-center">
+                                <h2>Sofia</h2>
+                            </div>
+                        </div>
+
+
+                        <div class="align-items-center">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-right">
+
+                    <div class="card">
+                        <div class="d-flex">
+                            <div class="box-img" >
+                                <img :src="contacts[activeContactIndex].avatar" alt="Avatar">
+                            </div>
+
+                            <div>
+                                <h2>{{ contacts[activeContactIndex].name }}</h2>
+
+                                <span class="grey">Ultimo accesso oggi alle 12:00</span>
+                            </div>
+                        </div> 
+                        
+                        
+                        <div class="align-items-center">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
             </div>
 
             <div class="d-flex">
@@ -34,7 +80,7 @@
                     <div class="search-bar"></div>
 
                     <div class="contact-list">
-                        <div class="card" v-for="(contact, index) in contacts" :key="index" @click="activeContact(index)">
+                        <div class="card" v-for="(contact, contactIndex) in contacts" :key="contactIndex" @click="activeContact(contactIndex)">
                             <div class="d-flex">
                                 <!-- avatar -->
                                 <div class="box-img">
@@ -55,7 +101,7 @@
 
                 <div class="conversation-container">
                     <div class="text-container">
-                        <div class="sus" v-if="activeContactIndex !== null">
+                        <div class="full-widht" v-if="activeContactIndex !== null">
                             <div v-for="(message, messageIndex) in contacts[activeContactIndex].messages" :key="messageIndex">
                                 <!-- Qui mostri i messaggi -->
                                 <div v-if="message.status === 'sent'" class="text-user">

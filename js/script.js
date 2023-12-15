@@ -151,7 +151,7 @@ const app = createApp({
         
             
         ],
-        activeContactIndex:null
+        activeContactIndex:0,
         
           
           
