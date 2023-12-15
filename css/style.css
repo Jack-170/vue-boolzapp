@@ -33,13 +33,13 @@ body{
 
 .main-container{
     height: 700px;
-    width: 70%;
+    width: 80%;
     border: 1px solid black;
-    background-color: white;
+    background-color: #fafafa;
     position: absolute; 
     top: 15px; 
-    left: 15%; 
-    right: 15%;
+    left: 10%; 
+    right: 10%;
     bottom: 15px;
     z-index: 2;
     
@@ -80,7 +80,7 @@ body{
 }
 
 .notifications{
-    height: 100px;
+    height: 90px;
     width: 100%;
     background-color: #8edafc;
     border: 1px solid black;
@@ -88,14 +88,23 @@ body{
 
 }
 
-.search-bar{
+.search{
     height: 50px;
     width: 100%;
     border: 1px solid black;
 }
 
+
+.searchbar{
+    width: 90%;
+    height: 75%;
+    margin: auto;
+    border: 1px solid #d1cbcb ;
+
+}
+
 .contact-list{
-    height: calc(100% - 150px);
+    height: calc(100% - 140px);
     width: 100%;
     border: 1px solid black;
     overflow: scroll;
@@ -127,7 +136,7 @@ body{
     padding: 10px;
     width: 100%;
     height: 90px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* background-color: yellow; */
     display: flex;
     /* align-items: center; */
@@ -140,6 +149,7 @@ body{
     height: 70px;
     /* border: 1px solid black; */
     margin-right: 10px;
+    border-radius: 50%;
 }
 
 img{
@@ -149,20 +159,77 @@ img{
 }
 
 
+
+.fa-solid.fa-bell-slash{
+   color: #8edafc;
+   font-size: 30px; 
+}
+
+
+.search-button{
+    width: 20%;
+    height: 100%;
+    border: 1px solid white; 
+    border-right-color: grey;
+    background-color: #fafafa;
+}
+
+
+.search-chat{
+    width: 80%;
+    height: 100%;
+    background-color: #fafafa;
+    border: 1px solid white;
+}
+
+.icon-bottom{
+    color: grey;
+    font-size: 25px;
+    margin: 0 15px;
+}
+
+.fa-solid.fa-microphone{
+    color: grey;
+    font-size: 25px;
+    margin: 0 15px;
+}
+
+.insert-text{
+    width: 90%;
+    padding: 10px;
+    border: 1px solid white;
+
+}
+
+
+
+
+
+
 /*stili per assengsare caratteristiche */
 
 .d-flex{
     display: flex;
 }
 
-.grey{
+.light-grey{
     color: #d1cbcb;
+}
+
+.grey{
+    color: grey;
 }
 
 .full-widht{
     width: 100%;
     padding-top: 35px;
+    height: 100%;
     
+}
+
+.justify-content-center{
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -175,6 +242,14 @@ img{
     margin: 0 5px;
     color: #b1b1b1;
     font-size: 22px;
+}
+
+.bg-white{
+    background-color: white;
+}
+
+.underline{
+    text-decoration:underline;
 }
 /* stili messaggi */
 

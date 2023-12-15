@@ -147,23 +147,41 @@ const app = createApp({
                     }
                 ],
             },
-        
-        
-            
         ],
         activeContactIndex:0,
+        filterText: '', // Cambio del nome da searchQuery a filterText
+        filteredContacts: [], // Array per i contatti filtrati
+      
         
           
           
       };
   },
   methods: {
-    activeContact(index){
-        this.activeContactIndex = index;
+
+    filterContacts() {
+        this.filteredContacts = this.contacts.filter(contact =>
+            contact.name.toLowerCase().includes(this.filterText.toLowerCase())
+        );
+    },
+
+    activeContact(index) {
+        // Se stai utilizzando la lista filtrata
+        if (this.filteredContacts.length > 0) {
+            // Trova l'indice corrispondente nella lista completa dei contatti
+            const fullListIndex = this.contacts.indexOf(this.filteredContacts[index]);
+            this.activeContactIndex = fullListIndex;
+        } else {
+            this.activeContactIndex = index;
+        }
     }
 
     
       
+  },
+  mounted() {
+    
+    this.filteredContacts = this.contacts;
   },
  
 

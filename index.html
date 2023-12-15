@@ -22,6 +22,7 @@
 
         <div class="main-container">
 
+            <!-- navbar------------------------------------------------------------------>
             <div class="navbar">
                 <div class="nav-left">
                     <div class="card ">
@@ -54,7 +55,7 @@
                             <div>
                                 <h2>{{ contacts[activeContactIndex].name }}</h2>
 
-                                <span class="grey">Ultimo accesso oggi alle 12:00</span>
+                                <span class="light-grey">Ultimo accesso oggi alle 12:00</span>
                             </div>
                         </div> 
                         
@@ -65,22 +66,55 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
             </div>
 
-            <div class="d-flex">
-                <div class="chat-container">
-                    <div class="notifications"></div>
 
-                    <div class="search-bar"></div>
+
+
+            
+            <div class="d-flex">
+
+                <!-- lista chat -->
+                <div class="chat-container">
+                    <div class="notifications">
+                        <div class="card">
+                          <div class="d-flex">
+
+                            <div class="bg-white box-img align-items-center justify-content-center">
+                                <i class="fa-solid fa-bell-slash"></i>
+                            </div>
+
+                            <div>
+                                <h3>Ricevi notifiche per i nuovi messaggi</h3>
+
+                                <span class="grey underline">Attiva notifiche desktop</span>
+                            </div>
+
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="search d-flex">
+
+                        <div class="searchbar d-flex">
+                            <div class="search-button align-items-center justify-content-center">
+
+                                <i class="fa-solid fa-magnifying-glass"></i> 
+                            </div>
+
+                            <input class="search-chat" type="text" placeholder="Cerca o inizia una nuova chat" v-model=" filterText" @input="filterContacts" />
+                        </div>
+
+
+
+
+
+
+                    </div>
 
                     <div class="contact-list">
-                        <div class="card" v-for="(contact, contactIndex) in contacts" :key="contactIndex" @click="activeContact(contactIndex)">
+                        <div class="card" v-for="(contact, contactIndex) in filteredContacts" :key="contactIndex" @click="activeContact(contactIndex)">
                             <div class="d-flex">
                                 <!-- avatar -->
                                 <div class="box-img">
@@ -89,15 +123,19 @@
                                 <!-- nome contatto -->
                                 <div>
                                     <h2>{{ contact.name }}</h2>
-                                    <span class="grey">Ultimo messaggo inviato</span>
+                                    <span class="light-grey">Ultimo messaggo inviato</span>
                                 </div>
                             </div>
                             <div>
-                                <span class="grey">12:00</span>
+                                <span class="light-grey">12:00</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+
+                <!-- spazio chat -->
 
                 <div class="conversation-container">
                     <div class="text-container">
@@ -114,7 +152,19 @@
                         </div>
                     </div>
 
-                    <div class="bottom-bar"></div>
+                    <div class="bottom-bar align-items-center">
+
+                        <div>
+                            <i class="fa-regular fa-face-smile icon-bottom"></i>
+                        </div>
+
+                        <input class="insert-text" type="text" placeholder="Scrivi un messaggio">
+
+                        <div>
+                            <i class="fa-solid fa-microphone "></i>
+                        </div>
+                        
+                    </div>
 
                 </div>
             </div>
