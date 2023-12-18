@@ -192,6 +192,8 @@ const app = createApp({
         filterText: '',
         filteredContacts: [],
         newMessageText: '', 
+        DropdownIndex: "",
+        DropdownStatus: false,
       
         
           
@@ -231,8 +233,33 @@ const app = createApp({
   
         
           this.newMessageText = '';
+          setTimeout(() => {
+            const okResponse = {
+                date: new Date().toLocaleString(),
+                message: 'ok',
+                status: 'received',
+            };
+            this.contacts[this.activeContactIndex].messages.push(okResponse);
+         }, 1000);
+          
         }
-    },     
+        
+    },
+    
+    Dropdown(index) {
+        if (this.DropdownIndex === index) {
+            this.DropdownIndex = null;
+            this.DropdownStatus = false;
+        } else {
+            this.DropdownIndex = index;
+            this.DropdownStatus = true;
+        }
+    },
+
+    deleteMessage(messageIndex) {
+        this.contacts[this.activeContactIndex].messages.splice(messageIndex, 1);
+        this.DropdownStatus = false;
+    },
 
     
       

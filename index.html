@@ -126,6 +126,7 @@
                                     <span class="light-grey">{{ contact.messages[contact.messages.length - 1].message }}</span>
                                 </div>
                             </div>
+
                             <div>
                                 <span class="ms-date light-grey">{{ contact.messages[contact.messages.length - 1].date }}</span>
                             </div>
@@ -139,17 +140,27 @@
 
                 <div class="conversation-container">
                     <div class="text-container">
+
                         <div class="full-widht" v-if="activeContactIndex !== null">
-                            <div v-for="(message, messageIndex) in contacts[activeContactIndex].messages" :key="messageIndex">
+                            <div v-for="(message, messageIndex) in contacts[activeContactIndex].messages" :key="messageIndex" @click="Dropdown(messageIndex)">
                                
                                 <div v-if="message.status === 'sent'" class="text-user">
                                     {{ message.message }}
+                                    <div  v-if="DropdownIndex === messageIndex && DropdownStatus" class="dropdown">
+
+                                        <p>Message info</p>
+
+                                        <p class="ms-delete-message"  @click="deleteMessage(messageIndex)">Delete</p>
+                                    </div>
                                 </div>
+
+                                
                                 <div v-else class="text-response">
                                     {{ message.message }}
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
 
                     <div class="bottom-bar align-items-center">

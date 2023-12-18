@@ -148,6 +148,10 @@ body{
 .contact-list .card {
     border-bottom: 1px solid #e5e0e0;
 }
+.contact-list .card:hover{
+    background-color:#e9ebeb;
+
+}
 
 
 .box-img{
@@ -208,6 +212,26 @@ img{
 }
 
 
+.dropdown{
+    font-family: 'Rethink Sans';
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 60%;
+    right: 0;
+    text-align: center;
+    padding: 10px;
+    z-index: 1;
+}
+
+.ms-delete-message{
+
+    margin-top: 10px;
+
+}
+
+
 
 
 
@@ -264,6 +288,8 @@ img{
 
 
 .text-user{
+
+    position:relative;
     width: 250px;
    
     background-color: #d5f9ba ;
