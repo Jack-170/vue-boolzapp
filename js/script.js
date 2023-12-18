@@ -147,10 +147,51 @@ const app = createApp({
                     }
                 ],
             },
+            {
+                name: 'Federico',
+                avatar: 'img/avatar_6.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Fai gli auguri a Martina che è il suo compleanno!',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'Grazie per avermelo ricordato, le scrivo subito!',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Davide',
+                avatar: 'img/avatar_7.jpg',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Ciao, andiamo a mangiare la pizza stasera?',
+                        status: 'received'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:51:00',
+                        message: 'OK!!',
+                        status: 'received'
+                    }
+                ],
+            }
+        
         ],
         activeContactIndex:0,
-        filterText: '', // Cambio del nome da searchQuery a filterText
-        filteredContacts: [], // Array per i contatti filtrati
+        filterText: '',
+        filteredContacts: [],
+        newMessageText: '', 
       
         
           
@@ -166,15 +207,32 @@ const app = createApp({
     },
 
     activeContact(index) {
-        // Se stai utilizzando la lista filtrata
+        
         if (this.filteredContacts.length > 0) {
-            // Trova l'indice corrispondente nella lista completa dei contatti
+            
             const fullListIndex = this.contacts.indexOf(this.filteredContacts[index]);
             this.activeContactIndex = fullListIndex;
         } else {
             this.activeContactIndex = index;
         }
-    }
+    },
+
+    addMessage() {
+        if (this.newMessageText !== '') {
+          const currentDate = new Date().toLocaleString(); 
+          const newMessage = {
+            date: currentDate,
+            message: this.newMessageText,
+            status: 'sent',
+          };
+  
+          
+          this.contacts[this.activeContactIndex].messages.push(newMessage);
+  
+        
+          this.newMessageText = '';
+        }
+    },     
 
     
       

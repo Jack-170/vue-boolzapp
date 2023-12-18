@@ -32,7 +32,7 @@
                             </div>
 
                             <div class="align-items-center">
-                                <h2>Sofia</h2>
+                                <h1>Sofia</h1>
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@
                             <div>
                                 <h2>{{ contacts[activeContactIndex].name }}</h2>
 
-                                <span class="light-grey">Ultimo accesso oggi alle 12:00</span>
+                                <span class="ms-date light-grey">Ultimo accesso: {{ contacts[activeContactIndex].messages[contacts[activeContactIndex].messages.length - 1].date }}</span>
                             </div>
                         </div> 
                         
@@ -123,11 +123,11 @@
                                 <!-- nome contatto -->
                                 <div>
                                     <h2>{{ contact.name }}</h2>
-                                    <span class="light-grey">Ultimo messaggo inviato</span>
+                                    <span class="light-grey">{{ contact.messages[contact.messages.length - 1].message }}</span>
                                 </div>
                             </div>
                             <div>
-                                <span class="light-grey">12:00</span>
+                                <span class="ms-date light-grey">{{ contact.messages[contact.messages.length - 1].date }}</span>
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                     <div class="text-container">
                         <div class="full-widht" v-if="activeContactIndex !== null">
                             <div v-for="(message, messageIndex) in contacts[activeContactIndex].messages" :key="messageIndex">
-                                <!-- Qui mostri i messaggi -->
+                               
                                 <div v-if="message.status === 'sent'" class="text-user">
                                     {{ message.message }}
                                 </div>
@@ -158,7 +158,7 @@
                             <i class="fa-regular fa-face-smile icon-bottom"></i>
                         </div>
 
-                        <input class="insert-text" type="text" placeholder="Scrivi un messaggio">
+                        <input class="insert-text" type="text" placeholder="Scrivi un messaggio"  v-model="newMessageText" @keyup.enter="addMessage">
 
                         <div>
                             <i class="fa-solid fa-microphone "></i>
