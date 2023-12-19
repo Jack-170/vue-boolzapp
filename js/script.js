@@ -221,29 +221,32 @@ const app = createApp({
 
     addMessage() {
         if (this.newMessageText !== '') {
-          const currentDate = new Date().toLocaleString(); 
-          const newMessage = {
-            date: currentDate,
-            message: this.newMessageText,
-            status: 'sent',
-          };
-  
-          
-          this.contacts[this.activeContactIndex].messages.push(newMessage);
-  
-        
-          this.newMessageText = '';
-          setTimeout(() => {
-            const okResponse = {
-                date: new Date().toLocaleString(),
-                message: 'ok',
-                status: 'received',
+            const currentDate = new Date().toLocaleString();
+            const newMessage = {
+                date: currentDate,
+                message: this.newMessageText,
+                status: 'sent',
             };
-            this.contacts[this.activeContactIndex].messages.push(okResponse);
-         }, 1000);
-          
+    
+            this.contacts[this.activeContactIndex].messages.push(newMessage);
+    
+            this.newMessageText = '';
+    
+            setTimeout(() => {
+                
+                axios.get('https://flynn.boolean.careers/exercises/api/random/sentence')
+                    .then(response => {
+                        const receivedMessage = {
+                            date: new Date().toLocaleString(),
+                            message: response.data.response,
+                            status: 'received',
+                        };
+                        this.contacts[this.activeContactIndex].messages.push(receivedMessage);
+                    })
+                    
+                    
+            }, 1000);
         }
-        
     },
     
     Dropdown(index) {
